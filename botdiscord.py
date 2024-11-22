@@ -10,3 +10,14 @@ load_dotenv()
 token = os.getenv('TOKEN')
 
 bot = hikari.GatewayBot(token,intents=hikari.Intents.ALL_UNPRIVILEGED | hikari.Intents.MESSAGE_CONTENT )
+# funzione di ascolto del bot con esecuzione della risposta al comando ping
+
+@bot.listen()
+async def ping(event: hikari.GuildMessageCreateEvent) -> None:
+   
+  
+
+    if event.content.startswith("ping"):
+        await event.message.respond("pong")
+bot.run()
+
